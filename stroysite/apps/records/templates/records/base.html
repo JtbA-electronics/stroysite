@@ -1,0 +1,63 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Индивидуальный предприниматель Дудаль Александр Михайлович</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		
+		<link rel="stylesheet" href="{% static 'css/base.css' %}"
+		>
+	<body>
+		<header class="header">
+			
+			<div class="container">
+				
+				<div class="logo">
+				{% if user.is_authenticated %}
+					<button type="button" class="btn btn-primary">
+		  				<a href="{% url 'record_new' %}">+Добавить запись</a>
+					</button>
+				{% endif %}
+					 <div class="logo first">Индивидуальный предприниматель</div> <h1>Дудаль Александр Михайлович</h1>  
+				</div>
+				<ul class="nav justify-content-center">
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'main' %}">Главная</a>
+					</li>
+					<li class="nav-item">
+			    		<a class="nav-link" href="{% url 'services' %}">Услуги</a>
+			 		</li>
+			 		<li class="nav-item">
+			    		<a class="nav-link" href="{% url 'vacancy' %}">Вакансии</a>
+			 		</li>
+					<li class="nav-item">
+			    		<a class="nav-link" href="{% url 'contacts'%}">Контакты</a>
+			 		</li>
+			 		<li class="nav-item">
+			    		<a class="nav-link" href="{% url 'documents' %}">Документы</a>
+			 		</li>
+				</ul>
+			</div>
+		</header>
+		<div class="content container">
+			<div class="row">
+				<div class="col-md-8">
+					{% block content %}
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="container">
+				E-mail:<br>
+				Номер телефона:<br>
+				Социальные сети:<br>
+				Сайт разработал:<br>
+			</div>
+		</footer>
+	</body>
+</html>
